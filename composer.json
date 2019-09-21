@@ -1,0 +1,38 @@
+{
+    "name": "bkstar123/mysql-search",
+    "description": "Enable full-text search and wildcard search for laravel/mysql applications",
+    "keywords": [
+        "laravel",
+        "mysql",
+        "fulltext",
+        "wildcard",
+        "search,"
+        "fulltext search",
+        "wildcard search"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hoang Anh Tuan",
+            "email": "hoangtuandhbk@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^7.1.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bkstar123\\MySqlSearch\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Bkstar123\\MySqlSearch\\MySqlSearchServiceProvider"
+            ]
+        }
+    }
+}
