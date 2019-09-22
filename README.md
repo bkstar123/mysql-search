@@ -65,7 +65,7 @@ The biggest problem with full-text indexes is that thay do not play nicely with 
 ***Partial search (using the operator LIKE %$searchTerms%)***
 ```php
 <?php
-App\Article::search($searchTerms, false) // partial search with LIKE operator againt wildcard terms e.g: %searchTerm% 
+App\Article::search($searchTerms, false) // partial search with LIKE operator against a wildcard term e.g: %searchTerm% 
 ```
 
 
