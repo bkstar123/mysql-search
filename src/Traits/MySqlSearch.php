@@ -15,7 +15,7 @@ trait MySqlSearch
      */
     public function scopeSearch($query, $term = '', $fts = true, $mode = '')
     {
-        return $fts ? $this->fulltextSearch($query, $term, $mode) : $this->wildcardSearch($query, $term);
+        return $fts ? $this->fulltextSearch($query, $term, $mode) : $this->partialSearch($query, $term);
     }
     
     /**
@@ -54,8 +54,8 @@ trait MySqlSearch
                     $textMode = 'IN NATURAL LANGUAGE MODE';
                     break;
             }
-            $query->whereRaw("MATCH ({$columns}) AGAINST (:term {$textMode})", [
-                'term' => $this->filterSearchTerm($term)
+            $query->whereRaw("MATCH ({$columns}) AGAINST (? {$textMode})", [
+                $this->filterSearchTerm($term)
             ]);
         }
         return $query;
@@ -66,7 +66,7 @@ trait MySqlSearch
      * @param string  $term
      * @return \Illuminate\Database\Eloquent\Builder  $query
      */
-    protected function wildcardSearch($query, $term = '')
+    protected function partialSearch($query, $term = '')
     {
         if (!empty($term) &&
             property_exists($this, 'mysqlSearchable') &&
