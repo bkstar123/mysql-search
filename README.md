@@ -29,9 +29,9 @@ use Bkstar123\MySqlSearch\Traits\MySqlSearch;
 
 class Article extends Model
 {
-	use MySqlSearch;
+    use MySqlSearch;
 
-	public static $mysqlSearchable = ['title', 'content'];
+    public static $mysqlSearchable = ['title', 'content'];
 
     //...
 }
@@ -60,7 +60,7 @@ By default, the default full-text search mode is NATURAL LANGUAGE. You can chang
 
 Refer to https://www.w3resource.com/mysql/mysql-full-text-search-functions.php for details on natual language & boolean mode. The query expansion mode is not recommended due to the fact that it creates a lot of noise in the search result.  
 
-The biggest problem with full-text indexes is that thay do not play nicely with regular indexes. If you do a full-text search query in combination with using other normal indexes, you are going to ha a very inefficient query (bad performance). Refer to https://medium.com/@kirkbackus/using-full-text-index-for-innodb-when-a-search-engine-is-not-feasible-d666830b4000  
+The biggest problem with full-text indexes is that thay do not play nicely with regular indexes. If you do a full-text search query in combination with using other normal indexes, you are going to have a very inefficient query (bad performance). Refer to https://medium.com/@kirkbackus/using-full-text-index-for-innodb-when-a-search-engine-is-not-feasible-d666830b4000  
 
 ***Partial search (using the operator LIKE %$searchTerms%)***
 ```php
