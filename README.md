@@ -21,7 +21,6 @@ a) In ```Article``` model, import & use the trait ```Bkstar123\MySqlSearch\Trait
 b) In ```Article``` model, define a public static property named as ```$mysqlSearchable```, for instance:  
 ```php
 <?php
-<?php
 
 namespace App;
 
