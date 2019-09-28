@@ -55,6 +55,17 @@ App\Article::search($searchTerms, true, 'natural')
 App\Article::search($searchTerms) // full-text search in natural language mode
 App\Article::search($searchTerms, true, 'boolean') // Full-text search in boolean mode
 App\Article::search($searchTerms, true, 'query') // Full-text search with query expansion
+
+// Better to use with try...catch as follows
+try {
+    $articles = App\Article::search($searchText)
+                    ->paginate(10)
+                    ->appends([
+                        'search' => $searchText
+                ]);
+} catch (Exception $e) {
+    $articles = [];
+}
 ```
 By default, the default full-text search mode is NATURAL LANGUAGE. You can change this default value by using FULLTEXT_SEARCH_MODE variable in ```.env``` file, possible values: ```natural, boolean, query```  
 
